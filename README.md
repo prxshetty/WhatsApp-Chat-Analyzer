@@ -1,4 +1,3 @@
 # whatsapp-chat-analysis
-A streamlit app to analyze your whatsapp chats
+A streamlit application that makes analysis of your whatsapp chats including emojis, your acitivity and can show you depending on whether the selected chat is a group chat or an individual chat. Depoyed in Heroku and made with streamlit for interface.
 
-Demo Link: https://wca-campusx.herokuapp.com/
