@@ -1,6 +1,6 @@
 import re
 import pandas as pd
-#installed with streamlit in the venv
+# installed with streamlit in the venv
 def preprocess(data):
 
     pattern = '\d{1,2}/\d{1,2}/\d{2,4},\s\d{1,2}:\d{2}\s-\s'
