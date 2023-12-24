@@ -25,7 +25,7 @@ def preprocess(data):
             messages.append(entry[0])
 
     df['user'] = users
-    df['messsage'] = messages
+    df['message'] = messages
     df.drop(columns=['user_message'], inplace=True)
 
     df['year'] = df['date'].dt.year
