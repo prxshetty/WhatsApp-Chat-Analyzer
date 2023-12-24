@@ -14,16 +14,15 @@ if uploaded_file is not None:
     #fetches unique users
     user_list=df['user'].unique().tolist()
     user_list.remove('group_notification')
-    user_list.remove('You joined a group via invite in the community')
     user_list.sort()
     user_list.insert(0,'Overall')
 
-    selected_user=st.sidebar.selectbox("Show analysis wrt",user_list)
+    selected_user = st.sidebar.selectbox("Show analysis wrt",user_list)
 
     if st.sidebar.button("Show Analysis"):
-        num_messages,words=helper.fetch_stats(selected_user,df)
+        num_messages, words, num_media_messages, no_of_links= helper.fetch_stats(selected_user,df)
 
-        col1, col2, col3, col4=st.columns(4)
+        col1, col2, col3, col4 = st.columns(4)
 
         with col1:
             st.header("Total Messages")
@@ -31,3 +30,9 @@ if uploaded_file is not None:
         with col2:
             st.header("Total Words")
             st.title(words)
+        with col3:
+            st.header("Total Media")
+            st.title(num_media_messages)
+        with col4:
+            st.header("Total Links")
+            st.title(no_of_links)

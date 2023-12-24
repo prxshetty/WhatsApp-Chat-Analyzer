@@ -15,16 +15,23 @@ def preprocess(data):
     df.rename(columns={'message_date': 'date'}, inplace=True)
     users = []
     messages = []
+    special_message = "You joined a group via invite in the community"
     for message in df['user_message']:
         entry = re.split('([\w\W]+?):\s', message)
-        if entry[1:]:  # user name
+        if special_message in message:
+            users.append('group_notification')
+            messages.append(special_message)
+        elif entry[1:]:  # user name
             users.append(entry[1])
             messages.append(" ".join(entry[2:]))
         else:
             users.append('group_notification')
             messages.append(entry[0])
-
     df['user'] = users
+    # Make sure both lists have the same length
+    if len(messages) < len(df):
+        messages.append(None)  # Add a placeholder value for the extra row
+
     df['message'] = messages
     df.drop(columns=['user_message'], inplace=True)
 
