@@ -10,4 +10,4 @@ if uploaded_file is not None:
     bytes_data = uploaded_file.getvalue()
     data=bytes_data.decode("utf_8")
     df=preprocessor.preprocess(data)
-    st.text(data)
+    st.dataframe(df)
