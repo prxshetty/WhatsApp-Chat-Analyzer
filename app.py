@@ -72,5 +72,6 @@ if uploaded_file is not None:
         st.title("Most Common Words")
         st.pyplot(fig)
 
+        # emoji analysis
 
 
