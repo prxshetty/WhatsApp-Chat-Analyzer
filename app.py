@@ -4,6 +4,28 @@ import preprocessor
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+st.markdown(
+    """
+    <style>
+    .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        background-color: rgba(24, 119, 242, 0.7);
+        color: white;
+    }
+    .footer a {
+        color: white;
+        text-decoration: underline;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 st.sidebar.title("Whatsapp Chat Analyzer")
 
 uploaded_file = st.sidebar.file_uploader("Choose a file")
@@ -127,3 +149,12 @@ if uploaded_file is not None:
             ax.pie(emoji_df[1],labels=emoji_df[0],autopct="%0.2f")
             st.pyplot(fig)
 
+collaborations_name = "<i>Collaborations are always Welcome!<i>"
+github_link = "https://github.com/prxshetty"
+linkedin_link = "https://www.linkedin.com/in/prxshetty"
+twitter_link = "https://www.x.com/prxshetty"
+st.markdown(
+    f'<div class="footer">{collaborations_name}: <a href="{github_link}" target="_blank">GitHub</a> | '
+    f'<a href="{linkedin_link}" target="_blank">LinkedIn</a> | <a href="{twitter_link}" target="_blank">Twitter</a></div>',
+    unsafe_allow_html=True
+)
