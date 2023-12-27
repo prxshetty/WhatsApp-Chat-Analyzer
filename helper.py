@@ -4,6 +4,8 @@ import pandas as pd
 from collections import Counter
 import string
 import emoji
+import PIL.Image
+import numpy as np
 extract = URLExtract()
 
 def fetch_stats(selected_user,df):
@@ -38,10 +40,13 @@ def most_busy_user(df):
     return x, df
 
 def create_wordcloud(selected_user,df):
-
+    image_path = "./logos/pngimg.com - whatsapp_PNG95158.png"
+    python_mask = np.array(PIL.Image.open(image_path))
     if selected_user != 'Overall':
         df = df[df['user'] == selected_user]
-    wc = WordCloud(width=500, height=500, min_font_size=10, background_color='white')
+    wc = WordCloud(width=500, height=500, min_font_size=10, background_color='white',
+                   contour_color='#c9eab8', contour_width=20,
+                   mask=python_mask)
     df_wc = wc.generate(df['message'].str.cat(sep=" "))
     return df_wc
 
@@ -73,7 +78,8 @@ def emoji_helper(selected_user, df):
     emojis = []
     for message in df['message']:
         emojis.extend([c for c in message if c in emoji.EMOJI_DATA])
-    emoji_df = pd.DataFrame(Counter(emojis).most_common(len(Counter(emojis))))
+    emoji_counter = Counter(emojis)
+    emoji_df = pd.DataFrame(emoji_counter.most_common(10), columns=['Emoji', 'Count'])
     return emoji_df
 
 def monthly_timeline(selected_user, df):
