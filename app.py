@@ -99,7 +99,6 @@ if uploaded_file is not None:
         # daily timeline
         st.title("Daily Timeline")
         daily_timeline = helper.daily_timeline(selected_user, df)
-        fig, ax = plt.subplots()
         fig=px.line(daily_timeline, x='only_date', y='message',labels={'message':'Number of Messages'})
         st.plotly_chart(fig)
 
@@ -143,9 +142,6 @@ if uploaded_file is not None:
 
         # most common words without punctuation marks
         most_common_df = helper.most_common_words(selected_user, df)
-
-        fig, ax = plt.subplots()
-
         fig=px.bar(most_common_df, x=1, y=0,orientation='h',
                    labels={'x': 'Number of Occurrences'})
         fig.update_traces(marker_color='#575fe8')
