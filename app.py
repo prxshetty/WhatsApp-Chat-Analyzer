@@ -162,15 +162,10 @@ if uploaded_file is not None:
             fig.update_layout(title_text='Top 10 Emoji Analysis')
             st.plotly_chart(fig)
 
-collaborations_name = "<i>Suggestions are always Welcomed!<i>"
+collaborations_name = "<i>Connect Here: <i>"
 github_link = "https://github.com/prxshetty"
 linkedin_link = "https://www.linkedin.com/in/prxshetty"
 twitter_link = "https://www.x.com/prxshetty"
-# st.markdown(
-#     f'<div class="footer">{collaborations_name}: <a href="{github_link}" target="_blank">GitHub</a> | '
-#     f'<a href="{linkedin_link}" target="_blank">LinkedIn</a> | <a href="{twitter_link}" target="_blank">Twitter</a></div>',
-#     unsafe_allow_html=True
-# )
 
 st.sidebar.markdown(
     f'<div class="footer">{collaborations_name} <a href="{github_link}" target="_blank">GitHub</a> | '
