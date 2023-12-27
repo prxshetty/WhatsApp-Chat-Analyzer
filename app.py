@@ -5,11 +5,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.graph_objects as go
 import plotly.express as px
-import plotly.figure_factory as ff
+
 
 
 with open( "./style.css" ) as css:
-    st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
+    st.markdown( f'<style>{css.read()}</style>', unsafe_allow_html= True)
 st.markdown(
     """
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
