@@ -1,7 +1,7 @@
 import streamlit as st
 import helper
 import preprocessor
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt #extra library. can be deleted if required
 import seaborn as sns
 
 st.markdown(
